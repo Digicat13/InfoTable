@@ -1,0 +1,49 @@
+﻿@model BitsOrchestra.Models.Record
+@{
+    ViewData["Title"] = "Edit record";
+}
+
+<h3>Edit</h3>
+<table class="table">
+    @using (Html.BeginForm("Update", "Home", FormMethod.Post))
+    {
+        <tr>
+            <td>
+                <input type="hidden" value=@Model.Id name="id" />
+                @Html.LabelFor(modelItem => Model.Name)
+                @Html.TextBoxFor(modelItem => Model.Name, new { @required = "required" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(modelItem => Model.DateOfBirth)
+                @Html.EditorFor(modelItem => Model.DateOfBirth)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(modelItem => Model.Married)
+                @Html.EditorFor(modelItem => Model.Married)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(modelItem => Model.Phone)
+                @Html.TextBoxFor(modelItem => Model.Phone, new { required = "required" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(modelItem => Model.Salary)
+                @Html.TextBoxFor(modelItem => Model.Salary, new { required = "required"})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a  href ="/Home/Index" value="Cancel" class="btn btn-danger">Cancel</a>
+            </td>
+        </tr>
+    }
+</table>
+
